@@ -7,7 +7,6 @@
     <body>
         <?php
         // put your code here
-        // Cambio en master.
         ?>
     </body>
 </html>
