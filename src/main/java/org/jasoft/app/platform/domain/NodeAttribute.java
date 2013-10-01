@@ -7,6 +7,8 @@ package org.jasoft.app.platform.domain;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -39,62 +41,19 @@ public class NodeAttribute implements Serializable {
     @JoinColumn(name = "baseNodeId")
     private Node baseNode;
     
+    @Column
+    @Enumerated(EnumType.STRING)
+    private Type attributeType;
     
     
-    /**
-     * @return the id
-     */
-    public Long getId() {
-        return id;
+    public enum Type {
+        STRING,
+        INTEGER,
+        FLOAT,
+        DATE,
+        TIME,
+        DATETIME
     }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    /**
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * @return the ownerNode
-     */
-    public Node getOwnerNode() {
-        return ownerNode;
-    }
-
-    /**
-     * @param ownerNode the ownerNode to set
-     */
-    public void setOwnerNode(Node ownerNode) {
-        this.ownerNode = ownerNode;
-    }
-
-    /**
-     * @return the baseNode
-     */
-    public Node getBaseNode() {
-        return baseNode;
-    }
-
-    /**
-     * @param baseNode the baseNode to set
-     */
-    public void setBaseNode(Node baseNode) {
-        this.baseNode = baseNode;
-    }
+    
     
 }
